@@ -2,11 +2,13 @@ import express from "express";
 import * as dotenv from "dotenv";
 import cors from "cors";
 import { Configuration, OpenAIApi } from "openai";
-
 dotenv.config();
 
+const HOST = process.env.HOST || 8008;
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: OPENAI_API_KEY,
 });
 
 const openai = new OpenAIApi(configuration);
@@ -21,7 +23,7 @@ app.get("/", async (req, res) => {
   });
 });
 
-app.post("/", async (req, res) => {
+app.post("/chat", async (req, res) => {
   try {
     const prompt = req.body.message;
 
@@ -86,6 +88,6 @@ app.post("/", async (req, res) => {
   }
 });
 
-app.listen(8008, () =>
-  console.log("AI server started on http://localhost:8008")
+app.listen(HOST, () =>
+  console.log(`AI server started on http://localhost:${HOST}`)
 );
