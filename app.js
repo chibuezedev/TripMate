@@ -13,7 +13,7 @@ async function sendMessage() {
 
   if (message !== "") {
     // Send message to server
-    const response = await fetch("http://localhost:8008/", {
+    const response = await fetch("http://localhost:8008/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
