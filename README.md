@@ -1,2 +1,2 @@
 # TripMate
-Travel Assistance Chatbot
+Travel Assistance Chatbot Using Google Gemini Model Pro API.
